@@ -29,7 +29,7 @@ The application requires several Python packages. You can install them using the
      ```bash
      set OPENAI_API_KEY='your-api-key-here'
      ```
-#### Install required Pips
+3. #### Install required Pips
 
 ```bash
 pip install requests
@@ -38,8 +38,7 @@ pip install sqlite3
 pip install flask
 pip install bleach
 ```
-
-### Conclusion
+### Summary
 Humoids.com Weather Robot is a comprehensive solution for weather analysis and location suggestions. It combines various technologies to provide an intuitive and efficient user experience. The code is hosted on GitHub, making it accessible for further development and collaboration.
 
 Explore the application at [https://quantumgptweather.daodemocracy.repl.co/](https://quantumgptweather.daodemocracy.repl.co/) and contribute to its growth!
