@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>OpenAI Weather Aware Activity Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', monospace;
+        }
+        .container-fluid {
+            margin-top: 20px;
+        }
+        input[type="text"], .btn {
+            color: white;
+            background-color: black;
+            border: 1px solid white;
+        }
+        .navbar {
+            background-color: black;
+            border: 1px solid white;
+        }
+        .sidebar {
+            background-color: #333;
+            border: none;
+        }
+        .nav-link {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">OpenAI Weather Aware Activity Generator</a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block sidebar" style="background-color: #333;">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <form method="post">
+                    <label for="latitude">Latitude:</label>
+                    <input type="text" id="latitude" name="latitude" value="{{ request.form['latitude'] or '34.8298' }}">
+                  <br>
+                </br>
+                    <label for="longitude">Longitude:</label>
+                    <input type="text" id="longitude" name="longitude" value="{{ request.form['longitude'] or '-82.6015' }}">
+
+                  <br>
+                </br>
+                    <input type="submit" class="btn" value="Get Insights">
+                </form>
+                <h2>Weather Insights:</h2>
+                <p>{{ weather_insights }}</p>
+                <h2>Activity Suggestions:</h2>
+                <p>{{ location_suggestions }}</p>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
