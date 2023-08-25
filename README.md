@@ -1,7 +1,6 @@
 # humoids.com
 ## URL : [https://humoids.com/](https://humoids.com/) 
-## Demo Image:
-![image](https://github.com/graylan0/humoids.com/assets/34530588/c711ce5c-b3b6-429a-991a-627e57c8a501)
+## Demo Image:![image](https://github.com/graylan0/humoids.com/assets/34530588/fa61b228-cd45-4443-a8e5-493581e20742)
 
 ### Title: Humoids.com Weather Robot
 
