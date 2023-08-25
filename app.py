@@ -46,9 +46,13 @@ def save_to_sql(latitude, longitude, weather_insights, location_suggestions):
     '''
         INSERT OR REPLACE INTO weather (latitude, longitude, weather_insights, location_suggestions, timestamp)
         VALUES (?, ?, ?, ?, ?)
-        ''', (sanitize_input(latitude), sanitize_input(longitude),
-              sanitize_input(weather_insights),
-              sanitize_input(location_suggestions), datetime.now()))
+        ''',
+    (
+      latitude,
+      longitude,  # No need to sanitize here
+      sanitize_input(weather_insights),
+      sanitize_input(location_suggestions),
+      datetime.now()))
   conn.commit()
   conn.close()
 
@@ -124,13 +128,17 @@ def update_easley_sc():
 
 
 def weather():
-  latitude = request.form.get('latitude', '34.8298')
-  longitude = request.form.get('longitude', '-82.6015')
+  latitude_str = request.form.get('latitude', '34.8298')
+  longitude_str = request.form.get('longitude', '-82.6015')
+
+  # Sanitize the latitude and longitude values
+  latitude_str = sanitize_input(latitude_str)
+  longitude_str = sanitize_input(longitude_str)
 
   # Validate that latitude and longitude are valid floating-point numbers
   try:
-    latitude = float(latitude)
-    longitude = float(longitude)
+    latitude = float(latitude_str)
+    longitude = float(longitude_str)
   except ValueError:
     # Handle the error, e.g., return an error message or redirect to an error page
     return "Invalid latitude or longitude"
