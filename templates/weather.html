@@ -63,10 +63,12 @@
                 </br>
                     <input type="submit" class="btn" value="Get Insights">
                 </form>
-                <h2>Weather Insights:</h2>
-                <p>{{ weather_insights }}</p>
-                <h2>Activity Suggestions:</h2>
-                <p>{{ location_suggestions }}</p>
+              <br></br>
+          <h2>Weather Insights:</h2>
+          <div>{{ weather_insights|safe }}</div>
+          <h2>Activity Suggestions:</h2>
+          <div>{{ location_suggestions|safe }}</div>
+
             </main>
         </div>
     </div>
