@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capture Audio</title>
+</head>
+<body>
+    <h1>Capture Audio</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.time.label }}
+            {{ form.time() }}
+        </div>
+        <div>
+            <input type="submit" value="Start Recording">
+        </div>
+    </form>
+</body>
+</html>

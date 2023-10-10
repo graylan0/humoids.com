@@ -30,6 +30,9 @@
         .nav-link {
             color: white;
         }
+        .audio-status {
+            color: #ffc107; /* Yellow color for audio status */
+        }
     </style>
 </head>
 <body>
@@ -38,37 +41,38 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block sidebar" style="background-color: #333;">
+            <nav class="col-md-2 d-none d-md-block sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#">Psycho Detector</a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <form method="post">
+                <form method="post" action="/process_audio">
                     <label for="latitude">Latitude:</label>
                     <input type="text" id="latitude" name="latitude" value="{{ request.form['latitude'] or '34.8298' }}">
-                  <br>
-                </br>
+                    <br><br>
                     <label for="longitude">Longitude:</label>
                     <input type="text" id="longitude" name="longitude" value="{{ request.form['longitude'] or '-82.6015' }}">
-
-                  <br>
-                </br>
+                    <br><br>
                     <input type="submit" class="btn" value="Get Insights">
                 </form>
-              <br></br>
-          <h2>Weather Insights:</h2>
-          <div>{{ weather_insights|safe }}</div>
-          <h2>Activity Suggestions:</h2>
-          <div>{{ location_suggestions|safe }}</div>
-
+                <br><br>
+                <h2>Weather Insights:</h2>
+                <div>{{ weather_insights|safe }}</div>
+                <h2>Activity Suggestions:</h2>
+                <div>{{ location_suggestions|safe }}</div>
+                <br><br>
+                <br><br>
+                <form method="post" action="/capture_audio">
+                    <button type="submit" class="btn btn-primary">Psycho Detector Capture</button>
+                </form>
             </main>
         </div>
     </div>
